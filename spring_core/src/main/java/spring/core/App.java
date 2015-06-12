@@ -10,5 +10,6 @@ public class App
     {
         System.out.println( "Hello World!" );
         System.out.println( "Hello Ritesh Baba!" );
+        System.out.println( "Kya haal hai!" );
     }
 }
