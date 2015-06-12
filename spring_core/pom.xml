@@ -1,23 +1,26 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>spring</groupId>
-  <artifactId>spring_core</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
+	<groupId>spring</groupId>
+	<artifactId>spring_core</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
-  <name>spring_core</name>
-  <url>http://maven.apache.org</url>
+	<name>spring_core</name>
+	<url>http://maven.apache.org</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <spring.version>4.1.5.RELEASE</spring.version>
-    <junit.version>4.8.1</junit.version>
-  </properties>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<spring.version>4.1.5.RELEASE</spring.version>
+		<junit.version>4.8.1</junit.version>
+		<project.build.directory></project.build.directory>
+		<project.reporting.outputDirectory>target</project.reporting.outputDirectory>
+		<jacoco.version>0.6.3.201306030806</jacoco.version>
+	</properties>
 
-  <dependencies>
-  		<dependency>
+	<dependencies>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 			<version>${spring.version}</version>
@@ -37,11 +40,62 @@
 			<artifactId>spring-context</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>${junit.version}</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+	<dependency>
+		<groupId>org.jacoco</groupId>
+		<artifactId>org.jacoco.agent</artifactId>
+		<classifier>runtime</classifier>
+		<version>${jacoco.version}</version>
+		<scope>test</scope>
+	</dependency>
+	</dependencies>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.jacoco</groupId>
+					<artifactId>jacoco-maven-plugin</artifactId>
+					<version>0.6.3.201306030806</version>
+					<executions>
+						<!-- Prepares the property pointing to the JaCoCo runtime agent which 
+							is passed as VM argument when Maven the Surefire plugin is executed. -->
+						<execution>
+							<id>pre-unit-test</id>
+							<goals>
+								<goal>prepare-agent</goal>
+							</goals>
+							<configuration>
+								<!-- Sets the path to the file which contains the execution data. -->
+								<destFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</destFile>
+								<!-- Sets the name of the property containing the settings for JaCoCo 
+									runtime agent. -->
+								<propertyName>surefireArgLine</propertyName>
+							</configuration>
+						</execution>
+						<!-- Ensures that the code coverage report for unit tests is created 
+							after unit tests have been run. -->
+						<execution>
+							<id>post-unit-test</id>
+							<phase>test</phase>
+							<goals>
+								<goal>report</goal>
+							</goals>
+							<configuration>
+								<!-- Sets the path to the file which contains the execution data. -->
+								<dataFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</dataFile>
+								<!-- Sets the output directory for the code coverage report. -->
+								<outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 </project>
