@@ -6,7 +6,6 @@
 	<artifactId>spring_core</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-
 	<name>spring_core</name>
 	
 	<url>http://maven.apache.org</url>
