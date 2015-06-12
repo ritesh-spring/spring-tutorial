@@ -6,9 +6,10 @@
 	<artifactId>spring_core</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
+
 	<name>spring_core</name>
-	
 	<url>http://maven.apache.org</url>
+	
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -63,7 +64,7 @@
 					<artifactId>jacoco-maven-plugin</artifactId>
 					<version>0.6.3.201306030806</version>
 					<executions>
-						<!-- Prepares the property pointing to the JaCoCo runtime agent which 
+						<!-- Prepares the  property pointing to the JaCoCo runtime agent which 
 							is passed as VM argument when Maven the Surefire plugin is executed. -->
 						<execution>
 							<id>pre-unit-test</id>
