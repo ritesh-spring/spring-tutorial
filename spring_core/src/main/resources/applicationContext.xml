@@ -4,5 +4,10 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<bean id="fileWriterHelper" class="spring.core.injection.ritesh.FileWriterHelper">
+		<property name="fileWriter" ref="textFileWriter" />
+	</bean>
+ 
+	<bean id="textFileWriter" class="spring.core.injection.ritesh.TextFileWriter" />
 
 </beans>

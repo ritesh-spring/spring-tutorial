@@ -9,7 +9,7 @@
 
 	<name>spring_core</name>
 	<url>http://maven.apache.org</url>
-	
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>4.1.5.RELEASE</spring.version>
@@ -17,6 +17,7 @@
 		<project.build.directory></project.build.directory>
 		<project.reporting.outputDirectory>target</project.reporting.outputDirectory>
 		<jacoco.version>0.6.3.201306030806</jacoco.version>
+		<poi.version>3.11</poi.version>
 	</properties>
 
 	<dependencies>
@@ -46,13 +47,19 @@
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
-	<dependency>
-		<groupId>org.jacoco</groupId>
-		<artifactId>org.jacoco.agent</artifactId>
-		<classifier>runtime</classifier>
-		<version>${jacoco.version}</version>
-		<scope>test</scope>
-	</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>${poi.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jacoco</groupId>
+			<artifactId>org.jacoco.agent</artifactId>
+			<classifier>runtime</classifier>
+			<version>${jacoco.version}</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -63,7 +70,7 @@
 					<artifactId>jacoco-maven-plugin</artifactId>
 					<version>0.6.3.201306030806</version>
 					<executions>
-						<!-- Prepares the  property pointing to the JaCoCo runtime agent which 
+						<!-- Prepares the property pointing to the JaCoCo runtime agent which 
 							is passed as VM argument when Maven the Surefire plugin is executed. -->
 						<execution>
 							<id>pre-unit-test</id>
