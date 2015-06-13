@@ -23,7 +23,7 @@ public class TextFileWriter implements IFileWriter {
 		System.err.println("Writing in Text File");
 		try {
 			File textFileDir = new File("." + File.separator
-					+ "generatedTextFile");
+					+ "generatedFile");
 
 			File textFile = new File(textFileDir.getAbsolutePath()
 					+ File.separator + "myTextFile.txt");
