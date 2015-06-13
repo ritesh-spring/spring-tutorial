@@ -5,9 +5,9 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="fileWriterHelper" class="spring.core.injection.ritesh.FileWriterHelper">
-		<property name="fileWriter" ref="textFileWriter" />
+		<property name="fileWriter" ref="excelFileWriter" />
 	</bean>
  
 	<bean id="textFileWriter" class="spring.core.injection.ritesh.TextFileWriter" />
-
+    <bean id="excelFileWriter" class="spring.core.injection.ritesh.ExcelFileWriter" />
 </beans>

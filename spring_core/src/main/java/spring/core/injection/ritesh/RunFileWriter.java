@@ -20,8 +20,8 @@ public class RunFileWriter {
 
 		FileWriterHelper writerHelper = (FileWriterHelper) context
 				.getBean("fileWriterHelper");
-
 		writerHelper.fileWriter();
+		
 
 		((AbstractApplicationContext) context).close();
 	}
