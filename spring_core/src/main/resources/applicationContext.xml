@@ -14,9 +14,10 @@
 	</bean> -->
 	
    <bean id="fileWriterHelper" class="spring.core.injection.ritesh.FileWriterHelper">
-		<property name="fileWriter" ref="textFileWriter" />
+		<property name="fileWriter" ref="xmlFileWriter" />
 	</bean>
  
 	<bean id="textFileWriter" class="spring.core.injection.ritesh.TextFileWriter" />
     <bean id="excelFileWriter" class="spring.core.injection.ritesh.ExcelFileWriter" />
+    <bean id="xmlFileWriter" class="spring.core.injection.ritesh.XmlFileWriter" />
 </beans>
