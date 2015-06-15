@@ -27,4 +27,5 @@
 	<bean id="textFileWriter" class="spring.core.injection.ritesh.TextFileWriter" />
 	<bean id="excelFileWriter" class="spring.core.injection.ritesh.ExcelFileWriter" />
 	<bean id="xmlFileWriter" class="spring.core.injection.ritesh.XmlFileWriter" />
+	<bean id="csvFileWriter" class="spring.core.injection.ritesh.csvFileWriter" />
 </beans>
