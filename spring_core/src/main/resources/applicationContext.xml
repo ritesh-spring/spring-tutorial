@@ -20,8 +20,8 @@
 <context:property-placeholder location="classpath:/properties/*.properties"/>
 
 	<bean id="fileWriterHelper" class="spring.core.injection.ritesh.FileWriterHelper">
-		<!-- Set ref value in fileWriter.properties to write in desired file type -->
-		<property name="fileWriter" ref="${file.writer.bean}" />
+		<!-- Selected file type needs to be provided in fileWriter.properties -->
+		<property name="fileWriter" ref="${file.writer.file.type}FileWriter" />
 	</bean>
 
 	<bean id="textFileWriter" class="spring.core.injection.ritesh.TextFileWriter" />
