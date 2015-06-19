@@ -17,15 +17,19 @@
 			</list>
 		</property>
 	</bean> -->
+	
 <context:property-placeholder location="classpath:/properties/*.properties"/>
 
 	<bean id="fileWriterHelper" class="spring.core.injection.ritesh.FileWriterHelper">
+
 		<!-- Selected file type needs to be provided in fileWriter.properties -->
 		<property name="fileWriter" ref="${file.writer.file.type}FileWriter" />
+		
 	</bean>
 
 	<bean id="textFileWriter" class="spring.core.injection.ritesh.TextFileWriter" />
 	<bean id="excelFileWriter" class="spring.core.injection.ritesh.ExcelFileWriter" />
 	<bean id="xmlFileWriter" class="spring.core.injection.ritesh.XmlFileWriter" />
-	<bean id="csvFileWriter" class="spring.core.injection.ritesh.csvFileWriter" />
+	<bean id="csvFileWriter" class="spring.core.injection.ritesh.CsvFileWriter" />
+
 </beans>
