@@ -6,7 +6,6 @@ package spring.core.ritesh.hibernate.dao;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -20,9 +19,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class HibernateIntegrationTest {
 
 	@Autowired
-	ApplicationContext context;
-
-	@Autowired
 	Customer customer;
 
 	@Autowired
@@ -31,10 +27,8 @@ public class HibernateIntegrationTest {
 	@Test
 	public void testSaveCustomer() {
 		customer.setAddress("Indore");
-//		customer.setCustomer_id(1);
 		customer.setName("Ritesh Kumar");
 		customer.setPhoneNo(123456789L);
-
 		customerDao.saveCustomer(customer);
 
 	}
