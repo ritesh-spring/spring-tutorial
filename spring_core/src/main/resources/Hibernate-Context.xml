@@ -13,7 +13,7 @@
          http://www.springframework.org/schema/util 
          http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
-	<context:component-scan base-package="org.ritesh.hibernate" />
+	<context:component-scan base-package="spring.core" />
 	<!-- <context:property-placeholder location="classpath:*./connection.properties" file-encoding="UTF-8" ignore-unresolvable="true" /> -->
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
